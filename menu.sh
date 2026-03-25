@@ -11,11 +11,11 @@ if [ "$1" == "-d" ];then
     echo "Entorno eliminado"
 fi
 
-##Crea una variable global que permite usar consolidar.sh.
+## Define una variable global con el nombre del archivo de salida.
 export FILENAME="archivo"
 seguir=true
 
-##Mientras seguir sea verdadero, muestra las opciones.
+## Mientras la variable seguir sea true, se repite el menú.
 while $seguir;
 do
 
@@ -67,7 +67,7 @@ else
          elif [ -z "$FILENAME" ];then
                echo "ERROR: La variable no está definida"
                
-## De otra manera, ejecuta en background.
+## Ejecuta el script consolidar.sh en segundo plano (background).
          else
 
              bash "$HOME/consolidar.sh" &
@@ -79,7 +79,7 @@ else
       3)
 ## Si la variable está vacía, pide definirla. 
          if [ -z "$FILENAME" ];then
-             echo "ERROR: No se está definida la variable"
+             echo "ERROR:La variable no está definida"
              
 ## Si no existe el archivo imprime mensaje de error.
          elif [ ! -f "$HOME/EPNro1/salida/$FILENAME.txt" ];then
@@ -117,17 +117,17 @@ else
          elif [  ! -f "$HOME/EPNro1/salida/$FILENAME.txt" ];then
                echo "ERROR: No existe el archivo final. ingrese primero la opción 2"
 
-## De otra manera, imprime el mensaje y lee la respuesta,.
+## Solicita el número de padrón al usuario.
          else
                read -p "Ingrese número de padrón:" padron
 
-## Busca las coincidencias de padrón.
+## Busca líneas que contengan el padrón ingresado.
                grep "$padron" "$HOME/EPNro1/salida/$FILENAME.txt"
          fi
       ;;
 
       6)
-## Si seguir falso, termina el programa
+## Cambia la variable seguir a false para finalizar el programa.
          seguir=false
          echo "Saliendo..."
       ;;
