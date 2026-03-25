@@ -1,5 +1,5 @@
 #!/bin/bash
-##Pregunta al usuario si ejecutó el script con -d.
+##Verifica si el usuario ejecutó el script con -d.
 if [ "$1" == "-d" ];then
     echo "Eliminando entorno"
     
