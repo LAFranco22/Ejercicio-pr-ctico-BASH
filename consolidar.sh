@@ -3,7 +3,7 @@
 ## Si la variable no está vacía... recorre archivos txt
 if  [ -n "$FILENAME" ];then
 
-     for archivo in "$HOME/EPNro1/entrada/"*.txt
+     for archivo in "$HOME/EPNro1/entrada/"*.txt;
      do
 
 ## Si el archivo existe, lo agrega al archivo final y luego lo mueve a procesado.
